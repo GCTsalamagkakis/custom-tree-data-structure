@@ -1,0 +1,202 @@
+{
+	"warrior":{
+		"id": "warrior",
+		"children":
+			["warrior0"],
+		"parent": "starting",
+		"isFinal": false,
+		"isStarting": false,
+		"text": "You Are A Strong And Mighty Warrior! Your Duty Is To Protect The Kingdom As Well As Explore The Wilderness",
+		"buttonText": ["Begin"]
+	},
+	"warrior0":{
+		"id": "warrior0",
+		"children":
+			["warrior00", "warrior01"],
+		"parent": "warrior",
+		"isFinal": false,
+		"isStarting": false,
+		"text": "You Are Sitting Alone In A Tavern, Enjoying Your Drink. Suddenly A Mysterious Guy Approaches You. Do You Talk To Him?",
+		"buttonText": ["Talk", "Ignore"]
+	},
+	"warrior00":{
+		"id": "warrior00",
+		"children":
+			["final"],
+		"parent": "warrior0",
+		"isFinal": false,
+		"isStarting": false,
+		"text": "You Decide To Talk To Him, You Enjoy The Conversation And After He Leaves You Feel Light, Both Mentally And Physicaly. You've Been Robbed..",
+		"buttonText": ["Continue"]
+	},
+	"warrior01":{
+		"id": "warrior01",
+		"children":
+			["final"],
+		"parent": "warrior0",
+		"isFinal": false,
+		"isStarting": false,
+		"text": "You Decide To Ignore Him. Bad Idea As He Turned To Be Something Called A Godfather, He Would Make You An Offer You Can't Refuse",
+		"buttonText": ["Continue"]
+	},
+	"princess":{
+		"id": "princess",
+		"children":
+			["princess0"],
+		"parent": "starting",
+		"isFinal": false,
+		"isStarting": false,
+		"text": "You Are A Princess, You Are In Charge Of Keeping The Kingdom In Order While You Eat Your Grapes",
+		"buttonText": ["Begin"]
+	},
+	"princess0":{
+		"id": "princess0",
+		"children":
+			["princess00", "princess01"],
+		"parent": "princess",
+		"isFinal": false,
+		"isStarting": false,
+		"text": "It Was A Beautiful Day, Everything Was Going Well. All Kingdoms Lived In Peace. Until The Fire Nation Attacked. Surrender Or Search For The Avatar?",
+		"buttonText": ["Surrender", "Avatar"]
+	},
+	"princess00":{
+		"id": "princess00",
+		"children":
+			["final"],
+		"parent": "princess0",
+		"isFinal": false,
+		"isStarting": false,
+		"text": "You Surrender And They Take Over The World. Turns Out Their Management And Approach Towards Resources Are Remarkable And The Whole World Prospers. Good Choice!",
+		"buttonText": ["Continue"]
+	},
+	"princess01":{
+		"id": "princess01",
+		"children":
+			["final"],
+		"parent": "princess0",
+		"isFinal": false,
+		"isStarting": false,
+		"text": "You Search And Find The Avatar. But He Is Just A Kid (And Blue For Some Reason). It's Gonna Take Some Time To Realise His Potential",
+		"buttonText": ["Continue"]
+	},
+	"thief":{
+		"id": "thief",
+		"children":
+			["thief0"],
+		"parent": "starting",
+		"isFinal": false,
+		"isStarting": false,
+		"text": "You Are A Thief, You Put Bread On The Table But Getting Money From Naive People Sometimes You Work As A Spy For The Princess",
+		"buttonText": ["Begin"]
+	},
+	"thief0":{
+		"id": "thief0",
+		"children":
+			["thief00", "thief01"],
+		"parent": "thief",
+		"isFinal": false,
+		"isStarting": false,
+		"text": "You Are Walking, Minding Your Own Bussiness. Suddenly, You Find A Lolipop On The Road. So Easy To Take, Like Taking Candy From A Baby",
+		"buttonText": ["Take It", "Leave It"]
+	},
+	"thief00":{
+		"id": "thief00",
+		"children":
+			["final"],
+		"parent": "thief0",
+		"isFinal": false,
+		"isStarting": false,
+		"text": "You Decide To Take It. Oh My God! It's A Trap! Now The Whole Kingdom Knows That You'd Steal From Anybody. At Least You Don't Discriminate",
+		"buttonText": ["Continue"]
+	},
+	"thief01":{
+		"id": "thief01",
+		"children":
+			["final"],
+		"parent": "None",
+		"isFinal": false,
+		"isStarting": false,
+		"text": "You Decide To Take It. But Then You Remember That You Don't Like Sugar And Spice And Everything Nice. So You Let It Be And Continue Your Journey",
+		"buttonText": ["Continue"]
+	},
+	"wizard":{
+		"id": "wizard",
+		"children":
+			["wizard0"],
+		"parent": "starting",
+		"isFinal": false,
+		"isStarting": false,
+		"text": "You Are A Wizard, The Wisest Creature In The Whole Kingdom! You Help The Just And The Right. Also You Create Fireworks",
+		"buttonText": ["Begin"]
+	},
+	"wizard0":{
+		"id": "wizard0",
+		"children":
+			["wizard00", "wizard01"],
+		"parent": "wizard",
+		"isFinal": false,
+		"isStarting": false,
+		"text": "You Are Walking, Minding Your Own Bussiness. Suddenly, You Find An Old Friend, He Is A Human And He Wants To See One Of Your Tricks",
+		"buttonText": ["Accept", "Refuse"]
+	},
+	"wizard00":{
+		"id": "wizard00",
+		"children":
+			["final"],
+		"parent": "wizard0",
+		"isFinal": false,
+		"isStarting": false,
+		"text": "You Accept His Request. He Steps Back As You Whisper Some Ancient Words. And *poof* Behold! The Celestial Reptile! The Lizard Wizard!",
+		"buttonText": ["Continue"]
+	},
+	"wizard01":{
+		"id": "wizard01",
+		"children":
+			["final"],
+		"parent": "wizard0",
+		"isFinal": false,
+		"isStarting": false,
+		"text": "You Refuse To Spend Your Time So Wastefully. You Say 'Tell Me Friend! When Did Bobby The Sharp Abandon Reason For Madness?' As You Leave",
+		"buttonText": ["Continue"]
+	},
+	"startMenu":{
+		"id": "startMenu",
+		"children":
+			["starting", "info", "quit"],
+		"parent": "None",
+		"isFinal": false,
+		"isStarting": true,
+		"text": "Path Of The Four Horizons",
+		"buttonText": ["Play!", "Info!", "Quit.."]
+	},
+	"starting":{
+		"id": "starting",
+		"children":
+			["warrior", "princess", "thief", "wizard"],
+		"parent": "startMenu",
+		"isFinal": false,
+		"isStarting": false,
+		"text": "Choose your role!",
+		"buttonText": ["Warrior", "Princess", "Thief", "Wizard"]
+	},
+	"final":{
+		"id": "final",
+		"children":
+			["startMenu"],
+		"parent": "All lower-level nodes",
+		"isFinal": true,
+		"isStarting": false,
+		"text": "That Was The End Of The Preview File, Thank You For Playing! Press Continue To Play Again!",
+		"buttonText": ["Restart"]
+	},
+	"info":{
+		"id": "info",
+		"children":
+			["startMenu"],
+		"parent": "startMenu",
+		"isFinal": false,
+		"isStarting": false,
+		"text": "this is a small game created by George Tsalamagkakis as part of an educational tool",
+		"buttonText": ["Back"]
+	}
+}
