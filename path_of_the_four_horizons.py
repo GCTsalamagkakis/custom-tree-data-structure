@@ -225,7 +225,7 @@ def main_menuTXT(current=None):
 			global story
 			story = {}
 
-			with open('storif_testing.txt') as f:
+			with open('textPreview.txt') as f:
 				for i, line in enumerate(f):
 					line = line.strip()
 					if line:
