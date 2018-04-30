@@ -5,6 +5,17 @@ The story unfolds by branching out with each of the user's choice. Dictionaries 
 
 txt Format: node name\tnumber of children\tvalue\tparent node\tchild1\tchild2\tchildN\tbutton1 text\t button2 text\t buttonN text\t is first\t is last
 
+json format: "block":{
+		"id": "block",
+		"children":
+			["child1id", "child2id", "childnid],
+		"parent": "parentid",
+		"isFinal": bool,
+		"isStarting": bool,
+		"text": "Your desired value",
+		"buttonText": ["text1", "text2", "textn"]
+	}
+
 
 ![data](https://user-images.githubusercontent.com/38569768/39412946-0125f734-4c2c-11e8-9639-987057860d10.png)
 
