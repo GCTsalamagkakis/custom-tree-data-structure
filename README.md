@@ -17,7 +17,6 @@ json format: "block":{
 	}
 
 
-![data](https://user-images.githubusercontent.com/38569768/39412946-0125f734-4c2c-11e8-9639-987057860d10.png)
 
 ![start_menu](https://user-images.githubusercontent.com/38569768/39070519-674c9a6e-44ec-11e8-81e3-75a26bb26812.png)
 
