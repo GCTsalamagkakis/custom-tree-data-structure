@@ -1,2 +1,3 @@
-1) Read Data From File/Server
-2) Generalize Tree Structure
+1) Implement JSON
+2) Implement sqlite
+3) Implement default
