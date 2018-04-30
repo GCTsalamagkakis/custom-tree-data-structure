@@ -1,8 +1,5 @@
 import pygame
 
-
-
-
 story = {
 	"warriors": ["εισαι ενας πολεμιστης, ο καλυτερος του βασιλειου, σου εχει ανατεθει να εξερυνησεις μια μεχρι στιγμης αγνωστη περιοχη", None, None],
 	"warrior0": ["Ειναι ενα χειμωνιατικο βραδυ, εισαι στη ταβερνα του κυρ Βασιλη και απολαμβανεις το ποτο σου με λιγο ψωμι. Ξαφνικα σε πλησιαζει ενας μυστηριωδης τυπος με κουκουλα και προσπαθει να σου μιλησει", "μιλας", "δε μιλας"],
@@ -146,6 +143,8 @@ current = None
 gameDisplay = pygame.display.set_mode((screenx, screeny))
 
 white = (255, 255, 255)
+purple = (183, 166, 173)
+light_purple = (211, 201, 206)
 light_red = (255, 0, 0)
 light_green = (0, 255, 0)
 light_blue = (0, 0, 255)
@@ -157,9 +156,7 @@ brown = (139,69,19)
 red = (200, 0, 0)
 green = (0, 200, 0)
 
-pygame.display.set_caption("Το Μονοπατι των Τεσσαρων Οριζοντων")
-
-clock = pygame.time.Clock()
+pygame.display.set_caption("Path Of The Four Horizons")
 
 def text_objects(text, font):
 	textSurface = font.render(text, True, (0, 0, 0))
@@ -174,9 +171,12 @@ def message_display(text):
 			pos1 += 1
 
 	pos2 = pos1 + len(text)//3
-	if text[pos2] != " ":
-		while text[pos2] != " ":
-			pos2 += 1
+	try:
+		if text[pos2] != " ":
+			while text[pos2] != " ":
+				pos2 += 1
+	except BaseException:
+		pass
 
 	textSurf, textRect = text_objects(text[:pos1], message)
 	textRect.center = (screenx/2, screeny/(2+0.4))
@@ -186,11 +186,14 @@ def message_display(text):
 	textRect.center = (screenx/2, screeny/(2+0.2))
 	gameDisplay.blit(textSurf, textRect)
 
-	textSurf, textRect = text_objects(text[pos2:], message)
-	textRect.center = (screenx/2, screeny/2)
-	gameDisplay.blit(textSurf, textRect)
+	try:
+		textSurf, textRect = text_objects(text[pos2:], message)
+		textRect.center = (screenx/2, screeny/2)
+		gameDisplay.blit(textSurf, textRect)
+	except BaseException:
+		pass
 
-def button(msg, buttonx, width, buttony, height, nrm_color, light_color, action=None, current_stat = None):
+def button(msg, buttonx, width, buttony, height, nrm_color, light_color, action=None, current_state=None):
 	mouse = pygame.mouse.get_pos()
 	click = pygame.mouse.get_pressed()
 
@@ -198,45 +201,12 @@ def button(msg, buttonx, width, buttony, height, nrm_color, light_color, action=
 		pygame.draw.rect(gameDisplay, light_color, (buttonx, buttony, width, height))
 		for event in pygame.event.get():
 			if event.type == pygame.MOUSEBUTTONDOWN:
-				# 1 is the left mouse button, 2 is middle, 3 is right.
 				if event.button == 1:
-					if action == "info":
-						info()
-					if action == "quit":
+					if current_state == 'quit':
 						pygame.quit()
 						quit()
-					if action == "play":
-						game_intro()
-					if action == "menu":
-						main_menu()
-					if action == "intro":
-						game_loop()
-					if action == "introw":
-						current = "warriors"
-						char_intro(current)
-					if action == "introp":
-						current = "princesss"
-						char_intro(current)
-					if action == "introt":
-						current = "thiefs"
-						char_intro(current)
-					if action == "introm":
-						current = "wizards"
-						char_intro(current)
-					if action == "story":
-						story_loop(current_stat)
-					if action == "left":
-						current_stat += "0"
-						if current_stat[-6] == "0" or current_stat[-6] == "1":
-							final_screen()
-						else:
-							story_loop(current_stat)
-					if action == "right":
-						current_stat += "1"
-						if current_stat[-6] == "0" or current_stat[-6] == "1":
-							final_screen()
-						else:
-							story_loop(current_stat)
+					else:
+						action(current_state)
 	else:
 		pygame.draw.rect(gameDisplay, nrm_color, (buttonx, buttony, width, height))
 
@@ -244,128 +214,70 @@ def button(msg, buttonx, width, buttony, height, nrm_color, light_color, action=
 	textSurf, textRect = text_objects(msg, smallText)
 	textRect.center = (buttonx+width/2, buttony+height/2)
 	gameDisplay.blit(textSurf, textRect)
-	
 
-def main_menu():
-	intro = True
+
+def main_menuTXT(current=None):
 	
 	while True:
 		gameDisplay.fill(white)
-		message = "Το μονοπατι των τεσσαρων οριζοντων"
+
+		if current is None:
+			global story
+			story = {}
+
+			with open('storif_testing.txt') as f:
+				for i, line in enumerate(f):
+					line = line.strip()
+					if line:
+						info = line.split('\\t')
+						story[info[0]] = [part for part in info]
+
+			for key in story:
+
+				if story[key][-2] == 'True':
+					current = key
+
+		message = story[current][2]
 			
 		message_display(message)
 		
+		for i in range(int(story[current][1])):
+			button(story[current][4+int(story[current][1])+i], (screenx/int(story[current][1]))*(i+1)-(screenx/(2*int(story[current][1])))-50, 100, 550, 50, purple, light_purple, main_menuTXT, story[current][4+i])
 
-		button("Παιξε!", 180, 100, 550, 50, green, light_green, "play", None)
-		button("Πληροφοριες", 510, 100, 550, 50, yellow, light_yellow, "info", None)
-		button("Εξοδος", 880, 100, 550, 50, red, light_red, "quit", None)
-
-
-		
 		pygame.display.update()
 		
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				pygame.quit()
 				quit()
-					
 
-def info():
+def main_menuJSON(current=None):
+	pass
+
+def main_menuDB(current=None):
+	pass
+
+def main_menuDF(current=None):
+	pass
+
+def dataImport():
 	while True:
 		gameDisplay.fill(white)
-		message = "Αυτο ειναι ενα παιχνιδι/ιστορια, δημιουργημενο απο τον Γιωργο Τσαλαμαγκακη, η οποια σου δειχνει ποσο πολλες δυνατοτητες εχει μια συνθηκη 'Αν' και ποσο μπορει να αλλαξει τη πορεια των πραγματων. Ηξερες οτι αυτο το παιχνιδι εχει 64 διαφορετικα τελη; Καλη διασκεδαση!"
+
+		message = "Before You Dive Into Your Adventure, Tell Me Traveler, Where Will I Get Your Story From?"
+		buttons = [".txt", ".json", "Database", "Default"]
+		choices = [main_menuTXT, main_menuJSON, main_menuDB, main_menuDF]
 
 		message_display(message)
 
-		button("Πισω", 510, 100, 550, 50, red, light_red, "menu", None)
+		for i in range(len(buttons)):
+			button(buttons[i], ((screenx)/len(buttons))*(i+1)-(screenx/(2*len(buttons)))-50, 100, 550, 50, purple, light_purple, choices[i], None)
 
-
-		
 		pygame.display.update()
-		
-		for event in pygame.event.get():
-			if event.type == pygame.QUIT:
-				pygame.quit()
-				quit()
-	
-	
-def game_intro():
-
-	while True:
-		gameDisplay.fill(white)
-		message = "Διαλεξε τον χαρακτηρα σου!"
-
-		message_display(message)
-
-		button("Πολεμιστης", 120, 100, 550, 50, green, light_green, "introw", None)
-		button("Κλεφτης", 370, 100, 550, 50, brown, light_brown, "introt", None)
-		button("Πριγκιπισσα", 640, 100, 550, 50, red, light_red, "introp", None)
-		button("Μαγος", 880, 100, 550, 50, blue, light_blue, "introm", None)
-
-
-		
-		pygame.display.update()
-		
+			
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				pygame.quit()
 				quit()
 
-def char_intro(current):
-
-	while True:
-		gameDisplay.fill(white)
-		message = story[current][0]
-		new_current = ""
-
-		message_display(message)
-		for i in range(len(current)-1):
-			new_current += current[i]
-		new_current += "0"
-
-		button("Συνεχισε", 510, 100, 550, 50, green, light_green, "story", new_current)
-
-
-		
-		pygame.display.update()
-		
-		for event in pygame.event.get():
-			if event.type == pygame.QUIT:
-				pygame.quit()
-				quit()
-
-def story_loop(current):
-
-	while True:
-		gameDisplay.fill(white)
-		message = story[current][0]
-
-		message_display(message)
-
-		button(story[current][1], 120, 100, 550, 50, green, light_green, "left", current)
-		button(story[current][2], 880, 100, 550, 50, red, light_red, "right", current)
-
-		pygame.display.update()
-		
-		for event in pygame.event.get():
-			if event.type == pygame.QUIT:
-				pygame.quit()
-				quit()
-
-def final_screen():
-	while True:
-		gameDisplay.fill(white)
-		message = "Αυτο ηταν το παιχνιδι, ελπιζω να σου αρεσε! και μη ξεχνας, αυτο ηταν μονο ενα απο τα 64 διαφορετικα τελη, πηγαινε να δεις και τα υπολοιπα!"
-
-		message_display(message)
-
-		button("Ξαναπαιξε!", 510, 100, 550, 50, green, light_green, "menu", None)
-
-		pygame.display.update()
-		
-		for event in pygame.event.get():
-			if event.type == pygame.QUIT:
-				pygame.quit()
-				quit()
-
-main_menu()	
+dataImport()
