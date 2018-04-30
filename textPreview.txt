@@ -1,0 +1,39 @@
+startMenu\t3\tPath Of The Four Horizons\tNone\tstarting\tinfo\tquit\tPlay!\tInfo!\tQuit..\tTrue\tFalse
+
+starting\t4\tChoose your role!\tstartMenu\twarrior\tprincess\tthief\twizard\tWarrior\tPrincess\tThief\tWizard\tFalse\tFalse
+
+warrior\t1\tYou Are A Strong And Mighty Warrior! Your Duty Is To Protect The Kingdom As Well As Explore The Wilderness\tstarting\twarrior0\tContinue\tFalse\tFalse
+
+princess\t1\tYou Are A Princess, You Are In Charge Of Keeping The Kingdom In Order While You Eat Your Grapes\tstarting\tprincess0\tContinue\tFalse\tFalse
+
+thief\t1\tYou Are A Thief, You Put Bread On The Table But Getting Money From Naive People Sometimes You Work As A Spy For The Princess\tstarting\tthief0\tContinue\tFalse\tFalse
+
+wizard\t1\tYou Are A Wizard, The Wisest Creature In The Whole Kingdom! You Help The Just And The Right. Also You Create Fireworks\tstarting\twizard0\tContinue\tFalse\tFalse
+
+info\t1\tthis is a small game created by George Tsalamagkakis as part of an educational tool\tstartMenu\tstartMenu\tBack\tFalse\tFalse
+
+warrior0\t2\tYou Are Sitting Alone In A Tavern, Enjoying Your Drink. Suddenly A Mysterious Guy Approaches You. Do You Talk To Him?\twarrior\twarrior00\twarrior01\tTalk\tIgnore\tFalse\tFalse
+
+warrior00\t1\tYou Decide To Talk To Him, You Enjoy The Conversation And After He Leaves You Feel Light, Both Mentally And Physicaly. You've Been Robbed..\twarrior0\tfinish\tContinue\tFalse\tFalse
+
+warrior01\t1\tYou Decide To Ignore Him. Bad Idea As He Turned To Be Something Called A Godfather, He Would Make You An Offer You Can't Refuse\twarrior0\tfinish\tContinue\tFalse\tFalse
+
+thief0\t2\tYou Are Walking, Minding Your Own Bussiness. Suddenly, You Find A Lolipop On The Road. So Easy To Take, Like Taking Candy From A Baby\tthief\tthief00\tthief01\tTake It\tLeave It\tFalse\tFalse
+
+thief00\t1\tYou Decide To Take It. Oh My God! It's A Trap! Now The Whole Kingdom Knows That You'd Steal From Anybody. At Least You Don't Discriminate\tthief0\tfinish\tContinue\tFalse\tFalse
+
+thief01\t1\tYou Decide To Take It. But Then You Remember That You Don't Like Sugar And Spice And Everything Nice. So You Let It Be And Continue Your Journey\tthief0\tfinish\tContinue\tFalse\tFalse
+
+wizard0\t2\tYou Are Walking, Minding Your Own Bussiness. Suddenly, You Find An Old Friend, He Is A Human And He Wants To See One Of Your Tricks\twizard\twizard00\twizard01\tAccept\tRefuse\tFalse\tFalse
+
+wizard00\t1\tYou Accept His Request. He Steps Back As You Whisper Some Ancient Words. And *poof* Behold! The Celestial Reptile! The Lizard Wizard!\twizard0\tfinish\tContinue\tFalse\tFalse
+
+wizard01\t1\tYou Refuse To Spend Your Time So Wastefully. You Say "Tell Me Friend! When Did Bobby The Sharp Abandon Reason For Madness?" As You Leave\twizard0\tfinish\tContinue\tFalse\tFalse
+
+princess0\t2\tIt Was A Beautiful Day, Everything Was Going Well. All Kingdoms Lived In Peace. Until The Fire Nation Attacked. Surrender Or Search For The Avatar?\tprincess\tprincess00\tprincess01\tSurrender\tAvatar\tFalse\tFalse
+
+princess00\t1\tYou Surrender And They Take Over The World. Turns Out Their Management And Approach Towards Resources Are Remarkable And The Whole World Prospers. Good Choice!\tprincess0\tfinish\tContinue\tFalse\tFalse
+
+princess01\t1\tYou Search And Find The Avatar. But He Is Just A Kid (And Blue For Some Reason). It's Gonna Take Some Time To Realise His Potential\tprincess0\tfinish\tContinue\tFalse\tFalse
+
+finish\t1\tThat Was The End Of The Preview File, Thank You For Playing! Press Continue To Play Again!\tEvery Lower Level Node\tstartMenu\tContinue\tFalse\tTrue
