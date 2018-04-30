@@ -1,4 +1,5 @@
 import pygame
+import json
 
 story = {
 	"warriors": ["εισαι ενας πολεμιστης, ο καλυτερος του βασιλειου, σου εχει ανατεθει να εξερυνησεις μια μεχρι στιγμης αγνωστη περιοχη", None, None],
@@ -225,7 +226,7 @@ def main_menuTXT(current=None):
 			global story
 			story = {}
 
-			with open('textPreview.txt') as f:
+			with open('storif_testing.txt') as f:
 				for i, line in enumerate(f):
 					line = line.strip()
 					if line:
@@ -252,7 +253,28 @@ def main_menuTXT(current=None):
 				quit()
 
 def main_menuJSON(current=None):
-	pass
+	while True:
+		gameDisplay.fill(white)
+
+		if current is None:
+			global data
+			data = json.load(open('json.json'))
+			for block in data:
+				if data[block]["isStarting"]:
+					current = data[block]["id"]
+		
+		message = data[current]["text"]
+		message_display(message)
+
+		for i in range(len(data[current]["children"])):
+			button(data[current]["buttonText"][i], (screenx/len(data[current]["children"]))*(i+1)-(screenx/(2*len(data[current]["children"])))-50, 100, 550, 50, purple, light_purple, main_menuJSON, data[current]["children"][i])
+
+		pygame.display.update()
+		
+		for event in pygame.event.get():
+			if event.type == pygame.QUIT:
+				pygame.quit()
+				quit()
 
 def main_menuDB(current=None):
 	pass
