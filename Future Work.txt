@@ -1,3 +1,1 @@
-1) Implement JSON
-2) Implement sqlite
-3) Implement default
+1) Implement sqlite
