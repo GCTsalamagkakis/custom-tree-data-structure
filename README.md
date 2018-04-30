@@ -1,7 +1,7 @@
 # custom-tree-data-structure-part-of-educational-tool
 
 This is a story/game created with python and pygame to teach, in a light-hearted, fun way, middle school students some of the possibilities they have with if-statements.
-The story unfolds by branching out with each of the user's choice. Dictionaries were used with unique ids following a specific pattern that is used to recognized a node's branches
+The story unfolds by branching out with each of the user's choice. Dictionaries, .txt files, .json files and databases were used with unique ids following a specific pattern that is used to recognized a node's branches
 
 txt Format: node name\tnumber of children\tvalue\tparent node\tchild1\tchild2\tchildN\tbutton1 text\t button2 text\t buttonN text\t is first\t is last
 
